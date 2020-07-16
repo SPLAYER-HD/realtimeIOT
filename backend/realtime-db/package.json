@@ -1,0 +1,23 @@
+{
+  "name": "realtime-db",
+  "version": "1.0.0",
+  "description": "Realtime Platform Example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SPLAYER-HD/realtimeIOT.git"
+  },
+  "author": "Diego Torres",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SPLAYER-HD/realtimeIOT/issues"
+  },
+  "homepage": "https://github.com/SPLAYER-HD/realtimeIOT#readme",
+  "devDependencies": {
+    "standard": "^14.3.4"
+  }
+}
