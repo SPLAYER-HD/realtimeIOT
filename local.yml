@@ -1,0 +1,31 @@
+version: '3'
+
+volumes:
+  local_realtime_data: {}
+
+services:
+  realtime: &realtime
+    build:
+      context: .
+      dockerfile: ./compose/Dockerfile
+    image: diego/realtime:v1
+    command: /bin/sh -c "/home/app/entrypoint.sh"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - realtime_database
+    volumes:
+      - ./:/home/app:Z
+    env_file:
+      - ./.envs/.postgres
+    ports:
+      - "8000:8000"
+
+  realtime_database:
+    image: postgres:10.5
+    volumes:
+      - local_realtime_data:/var/lib/postgresql/data
+    env_file:
+      - ./.envs/.postgres
+    ports:
+    - "5432:5432"
