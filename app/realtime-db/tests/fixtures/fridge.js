@@ -4,6 +4,8 @@ const fridge = {
   id: 1,
   uuid: 'diego-diego-diego-diego',
   name: 'fridge1',
+  min: 6,
+  max: 8,
   createdAt: new Date(),
   updatedAt: new Date()
 }

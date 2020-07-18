@@ -29,7 +29,9 @@ module.exports = async function (config) {
 
   await sequelize.authenticate()
 
-  await sequelize.sync({ force: true })
+  if (config.initialize) {
+    await sequelize.sync({ force: true })
+  }
 
   const Fridge = setupFridge(FridgeModel)
   const Temperature = setupTemperature(TemperatureModel, FridgeModel)

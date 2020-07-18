@@ -1,0 +1,19 @@
+{
+  "name": "realtime-front",
+  "version": "1.0.0",
+  "description": "front of realtime sensor transmition",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SPLAYER-HD/realtimeIOT.git"
+  },
+  "author": "Diego Torres",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SPLAYER-HD/realtimeIOT/issues"
+  },
+  "homepage": "https://github.com/SPLAYER-HD/realtimeIOT#readme"
+}

@@ -29,3 +29,6 @@ services:
       - ./.envs/.postgres
     ports:
     - "5432:5432"
+
+  redis:
+    image: redis:6.0.5

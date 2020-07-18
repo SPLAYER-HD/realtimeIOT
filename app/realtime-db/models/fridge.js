@@ -14,6 +14,14 @@ module.exports = function setupFridgeModel (config) {
     name: {
       type: Sequelize.STRING,
       allowNull: false
+    },
+    min: {
+      type: Sequelize.INTEGER,
+      allowNull: false
+    },
+    max: {
+      type: Sequelize.INTEGER,
+      allowNull: false
     }
   })
 }

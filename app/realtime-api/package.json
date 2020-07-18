@@ -1,0 +1,38 @@
+{
+  "name": "realtime-api",
+  "version": "1.0.0",
+  "description": "realtime api rest",
+  "main": "index.js",
+  "scripts": {
+    "test": "DEBUG=realtime:* nyc ava --verbose",
+    "start": "NODE_ENV=production node server.js",
+    "start-dev": "DEBUG=realtime:* nodemon server.js",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SPLAYER-HD/realtimeIOT.git#readme"
+  },
+  "author": "Diego Torres",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SPLAYER-HD/realtimeIOT/issues"
+  },
+  "homepage": "https://github.com/SPLAYER-HD/realtimeIOT/tree/readme#readme",
+  "devDependencies": {
+    "ava": "^3.10.1",
+    "debug": "^4.1.1",
+    "nodemon": "^2.0.4",
+    "proxyquire": "^2.1.3",
+    "sinon": "^9.0.2",
+    "standard": "^14.3.4",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-asyncify": "^1.0.1",
+    "nyc": "^15.1.0",
+    "realtime-common": "file:../realtime-common",
+    "realtime-db": "file:../realtime-db"
+  }
+}
