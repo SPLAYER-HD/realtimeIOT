@@ -1,16 +1,16 @@
 'use strict'
-import React, { useState } from 'react'
+import React, { Suspense, useState } from 'react'
+import { Loader } from './styles/loader'
 import { hot } from 'react-hot-loader'
 import './App.css'
-import { Graph } from './components/Graph'
+const Graph = React.lazy(() => import('./components/Graph'))
 
 
-const App = () => (
-  // const [response, setResponse] = useState('')
-  // const socket = socketIOClient(ENDPOINT);
-/* socket.on("FromAPI", data => {
-  setResponse(data);
-}); */
-  <Graph />
+const App = () => {
+return (
+<Suspense fallback={<Loader />}>
+  <Graph/>
+  </Suspense>
 )
+}
 export default hot(module)(App)

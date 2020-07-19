@@ -9,7 +9,7 @@ const db = require('realtime-db')
 var request = require('request-promise')
 
 class RealtimeSensor extends EventEmitter {
-  constructor () {
+  constructor (fridges) {
     super()
     this._options = common.mqttOptions
     this._started = false
@@ -36,8 +36,7 @@ class RealtimeSensor extends EventEmitter {
       this._client = mqtt.connect(opts.mqtt.host)
       this._started = true
 
-      // this._client.subscribe('fridge/message')
-
+      this._client.subscribe('fridge/message')
       this._client.on('connect', () => {
         this._timer = setInterval(async () => {
           if (this._fridges) {
@@ -58,11 +57,18 @@ class RealtimeSensor extends EventEmitter {
                 timestamp: new Date().getTime()
               }
               this._client.publish('fridge/message', JSON.stringify(message))
+              
             }
           }
         }, opts.interval)
       })
-
+     
+      this._client.on('message', (topic, payload) => {
+        console.log("mqtt sent a msg")
+        payload = common.parsePayload(payload)
+        debug(`payload ${payload}`)
+        
+      })
       this._client.on('error', () => common.handleFatalError)
     }
   }

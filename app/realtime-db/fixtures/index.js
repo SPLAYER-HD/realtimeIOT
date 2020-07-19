@@ -66,8 +66,6 @@ async function run () {
   await Temperature.create(paleAle.uuid, {
     value: '12'
   }).catch(common.handleFatalError)
-
-  const fridges = await Fridge.findAll().catch(common.handleFatalError)
 }
 
 run()

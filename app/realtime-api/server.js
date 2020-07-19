@@ -7,25 +7,31 @@ const asyncify = require('express-asyncify')
 const common = require('realtime-common')
 const socketio = require('socket.io')
 const api = require('./api')
+const mqtt = require('mqtt')
 
 const port = process.env.PORT || 3001
 const app = asyncify(express())
 const server = http.createServer(app)
 const io = socketio(server, { origins: '*:*'})
+let client = null
 
 app.use('/api', api)
 
 io.on('connect', socket => {
-  //debug(`customer ${socket.id}`)
-  socket.on('fridge/message', payload => {
+  console.log("front connected")
+  client.subscribe('fridge/message')
+  client.on('message', (topic, payload) => {
+    payload = common.parsePayload(payload)
     debug(`payload ${payload}`)
+    
+    switch (topic) {
+      case 'fridge/message':
+        socket.emit('fridge/message', payload)
+        break
+    }
   })
-  setInterval(()=> {
-    socket.emit('fridge/message', {fridge:{uuid:'test', timestamp: '10:10:10', name:'pilsen', temperature:{value:8} }})
-    socket.emit('fridge/message', {fridge:{uuid:'test', timestamp: '10:12:10', name:'pilsen', temperature:{value:3} }})
-    socket.emit('fridge/message', {fridge:{uuid:'test', timestamp: '10:13:10', name:'pilsen', temperature:{value:6} }})
-    socket.emit('fridge/message', {fridge:{uuid:'test', timestamp: '10:14:10', name:'pilsen', temperature:{value:1} }})
-  }, 10000)
+
+  client.on('error', () => common.handleFatalError)
 
 })
 // Express Error Handler
@@ -45,6 +51,7 @@ if (!module.parent) {
 
   server.listen(port, () => {
     console.log(`realtime-api server listening on port ${port}`)
+    client = mqtt.connect(common.mqttOptions.host)
   })
 }
 

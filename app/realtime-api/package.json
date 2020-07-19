@@ -31,9 +31,11 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-asyncify": "^1.0.1",
+    "mqtt": "^4.1.0",
     "nyc": "^15.1.0",
     "realtime-common": "file:../realtime-common",
     "realtime-db": "file:../realtime-db",
+    "realtime-mqtt": "file:../realtime-mqtt",
     "socket.io": "^2.3.0"
   }
 }

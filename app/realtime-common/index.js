@@ -34,7 +34,7 @@ function handleError (err) {
 }
 
 const mqttOptions = {
-  interval: 10000,
+  interval: 5000,
   mqtt: {
     host: 'mqtt://localhost'
   }

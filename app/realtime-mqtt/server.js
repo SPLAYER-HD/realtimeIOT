@@ -23,34 +23,27 @@ const config = defaults(common.config, {
 })
 
 const server = new mosca.Server(settings)
-const clients = new Map()
 
 let Temperature
-
-server.on('clientConnected', client => {
-  debug(`Client Connected: ${client.id}`)
-  clients.set(client.id, null)
-})
-
-server.on('clientDisconnected', async (client) => {
-  debug(`Client Disconnected: ${client.id}`)
-  // Delete client from Clients List
-  clients.delete(client.id)
-})
 
 server.on('published', async (packet, client) => {
   debug(`Received: ${packet.topic}`)
   debug(`Packet Payload: ${packet.payload}`)
-  const payload = common.parsePayload(packet.payload)
-  debug(`Payload Fridge: ${payload}`)
-  if (payload) {
-    // Store Temperature
-    try {
-      await Temperature.create(payload.fridge.uuid, payload.temperature)
-    } catch (e) {
-      return common.handleError(e)
+  switch (packet.topic) {
+    case 'fridge/message':
+      const payload = common.parsePayload(packet.payload)
+      debug(`Payload Fridge: ${payload}`)
+      if (payload) {
+        // Store Temperature
+        try {
+          await Temperature.create(payload.fridge.uuid, payload.temperature)
+          
+        } catch (e) {
+          return common.handleError(e)
+        }
+      }
+      break
     }
-  }
 })
 
 server.on('ready', async () => {
