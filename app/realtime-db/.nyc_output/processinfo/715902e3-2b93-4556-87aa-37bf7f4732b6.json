@@ -1,1 +1,0 @@
-{"parent":null,"pid":51,"argv":["/usr/local/bin/node","/home/app/app/realtime-db/node_modules/.bin/ava","--verbose"],"execArgv":[],"cwd":"/home/app/app/realtime-db","time":1595133553878,"ppid":40,"coverageFilename":"/home/app/app/realtime-db/.nyc_output/715902e3-2b93-4556-87aa-37bf7f4732b6.json","externalId":"","uuid":"715902e3-2b93-4556-87aa-37bf7f4732b6","files":[]}

@@ -1,5 +1,6 @@
 # PostgreSQL
-DB_HOST=realtime_database
-DB_NAME=realtime
-DB_USER=diego
-DB_PASS=20Diego20
+POSTGRES_HOST=realtime_database
+POSTGRES_PORT=5432
+POSTGRES_DB=realtime
+POSTGRES_USER=diego
+POSTGRES_PASSWORD=20Diego20

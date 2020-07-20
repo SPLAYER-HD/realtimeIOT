@@ -1,9 +1,19 @@
 version: '3'
 
 volumes:
-  local_realtime_data: {}
+  realtime_data: {}
 
 services:
+  
+  realtime_database:
+    image: postgres:10.5
+    volumes:
+      - realtime_data:/var/lib/postgresql/data
+    env_file:
+      - ./.envs/.postgres
+    ports:
+    - "5432:5432"
+
   realtime: &realtime
     build:
       context: .
@@ -18,17 +28,13 @@ services:
       - ./:/home/app:Z
     env_file:
       - ./.envs/.postgres
+      - ./.envs/.realtime
     ports:
-      - "8000:8000"
-
-  realtime_database:
-    image: postgres:10.5
-    volumes:
-      - local_realtime_data:/var/lib/postgresql/data
-    env_file:
-      - ./.envs/.postgres
-    ports:
-    - "5432:5432"
+      - "9090:8080"
+      - "4001:3001"
+      - "1884:1883"
+      - "3002:3002"
 
   redis:
     image: redis:6.0.5
+

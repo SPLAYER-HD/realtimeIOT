@@ -1,4 +1,18 @@
-cd app/realtime-db
+cd /home/app/realtime/realtime-db
 npm run setup
-npm run test
+#npm run test
 node fixtures/index.js
+cd /home/app/realtime/realtime-api
+#npm run test
+echo 'starting api'
+pm2 start server.js --name api
+cd /home/app/realtime/realtime-front
+echo 'starting front'
+npm run build
+pm2 start server.js --name front
+cd /home/app/realtime/realtime-mqtt
+echo 'starting mqtt'
+pm2 start server.js --name mqtt
+cd /home/app/realtime/realtime-sensor
+echo 'starting sensor'
+node simulator/index.js 
