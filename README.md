@@ -8,7 +8,7 @@
         ```bash
             tar -xvf release.tar
         ```
-    - to locate int the folder /release
+    - to locate in the folder /release
         ```bash
             cd release
         ```
@@ -23,10 +23,23 @@
 ![Architecture ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture.png)
 ![Database ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Database.png)
 
+I use TDD process to develop the most important backend modules, developing an event driven architecture where the temperature sensor is the main emmiter. NodeJS offer us a great platform to work with this kind of uses cases how is IOT in this case. having only one thread we can manage asynchronously multiple request from our sensors and api customers. Here is where a queue tool has an important use, for that reason I implemented MQTT wich is a system designed to IOT. In a application more sensitive to data loss we can use RabbitMQ or ActiveMQ. I used standard as linter in all modules as well.
+
+I started developing the backend. I decide to make different modules with a specific purpose, in this way all components will be reusable. I developed a realtime-db module, here there is the PostgreSQL connection using sequilize as ORM and exposing functions as libraries to make specific queries.
+
+After that I developed the realtime-api module where I use the realtime-db as a file-dependence to expose http services, in this case only for our forntend in ReactJS.
+
+Then I developed the realtime-MQTT and realtime-sensor modules. The sensor emit a signal with the current temperature (interval simulated), the mqtt module recive the data by socket and notify. Realtime-api been subscripted to these messages, recive the temperature and notify the front module.
+
+At the end I developed realtime-front module with ReactJS where I consume the realtime-api module by http to get the 6 refrigerator and I open a socket to hear events from any thermometer, then each Fridge react component decide if the metric belongs to that fridge and add the data to an array to draw a char and put the number of the current temperature using gray color when is between the normal params and red when is out of the constraint temperature params.
+
+
 # Architecture (TODO)
 
 ![Architecture_improved ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Architecture-improved.png)
 ![Database_improved ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Database-improved.png)
+
+In a real enviaronment, I would use this architectrure, deploying in AWS where we can use fargate to deploy the containers RDS to deploy our database and using cluster and balancers to make auto-scaling. Opening new business cases with all data colected.
 
 ## Docker Hub URL
     https://hub.docker.com/r/diegotorres95/realtime_production
@@ -71,4 +84,6 @@
     -Add auditory tables and audit the flow
     -Change mosca by other implementation because is deprecated maybe Aedes, RabbitMQ or other.
     -It is necessary validate the specific cases when the temperature down because of external factors like door open (sensor on device) or environment temperature (sensor on the truck or online service), and calculate the variance allowed in these cases
- 
+    -Analize static code with Sonar and implemented continuos integration with Jenkins
+    -I develop a centralized error handler in realtime-common module, but it has to be improved controling diferent cases, auditing the erros, sending alerts and make an error code list to make easier the support of the platform.
+    -I think I have good level of cyclomatic complex, but there are software pieces to improve, manly in realtime-front module.
