@@ -2,7 +2,7 @@
 
 # Architecrture
 
-![Architecture ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture)
+![Architecture ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Database.png)
 
 # Steps to try 
 
