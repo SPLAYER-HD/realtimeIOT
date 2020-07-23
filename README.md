@@ -1,6 +1,6 @@
-## realtime application
+# realtime application
 
-# Steps to test 
+## Steps to test 
 
 ### 1 Local build
     - download this file https://github.com/SPLAYER-HD/realtimeIOT/tree/master/release.tar
@@ -19,12 +19,12 @@
 
 # Architecture (Current)
 
-![Architecture ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Architecture-improved.png)
+![Architecture ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture.png)
 ![Database ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Database.png)
 
 # Architecture (TODO)
 
-![Architecture_improved ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Database.png)
+![Architecture_improved ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Architecture-improved.png)
 ![Database_improved ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Database-improved)
 
 ## TODO
