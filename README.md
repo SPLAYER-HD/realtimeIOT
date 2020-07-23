@@ -27,36 +27,36 @@
 ![Architecture_improved ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Architecture-improved.png)
 ![Database_improved ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Database-improved)
 
-## TODO
-# There ara many things to improve, most of them I didn't do because of time, and some few because depend of the business case and the goals of the application.
+# TODO
+## There ara many things to improve, most of them I didn't do because of time, and some few because depend of the business case and the goals of the application.
 
-# Database Module 
+## Database Module 
     -Modify entity fridge to generalize as type of device
     -Modify entity temperature to generalize as type of sensor
     -Add flow control for different http error codes and create custom extends Error
 
-# Api Module 
+## Api Module 
     -Add authentication jwt
     -Add header with Helmet
     -Add define generic body response and request (Header, Body, Validations)
 
-# MQTT Module
+## MQTT Module
     -Change backend mqtt to persistence database if is necessary 
 
-# Sensor Module
+## Sensor Module
     -There is a timer for all fridges. However in a real project the sensors are who emit the event, then each sensor have to implemented realtime-sensor and emit their information in parallel.
     -This model mustn't have realtime-db as a dependency, in this case is only to know the fridges name to consume rest service with temperature info (PragmaTeam) and simulate a sensor emmiting data, but in a better environment sensor module is called by a sensor device or by who emit the event.
 
-# Front Module
+## Front Module
     -Create pipe to re-transmite messages in server.js, this will make a easier code.
     -Remove hot deploy
     -Add serviveworker
     -Add lazy load
 
-# Docker
+## Docker
     - build a separated docker for Front, Api and MQTT modules
 
-# General
+## General
     -Implement security sistem with jwt authentication for http and socket connections
     -For testing purpose create a module with fixtures generics for test all modules
     -I only implemented success test, but it is necessary add test with error flows.
