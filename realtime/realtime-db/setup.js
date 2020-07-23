@@ -11,10 +11,13 @@ async function setup () {
     initialize: true
   })
 
-  await db(config).catch(common.handleFatalError)
+  await db(config).catch(handleFatalError)
 
   console.log('Success!')
   process.exit(0)
 }
-
+function handleFatalError (err) {
+  console.log('Postgres not ready')
+  setup()
+}
 setup()

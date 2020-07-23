@@ -5,11 +5,11 @@ import PropTypes from 'prop-types'
 
 export const IconSensor = ({ level, sensor }) => {
   const Icon = level === 'high' ? FaTemperatureHigh : FaTemperatureLow
-  return <Div>
-    <Icon
-      size='32px'
-    /> {sensor} Sensor
-  </Div>
+  return (
+    <Div>
+      <Icon size='32px' /> {sensor} 
+    </Div>
+  )
 }
 
 IconSensor.propTypes = {

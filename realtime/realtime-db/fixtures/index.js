@@ -23,7 +23,7 @@ async function run () {
   }).catch(common.handleFatalError)
   const ipa = await Fridge.createOrUpdate({
     uuid: '123-456-789',
-    name: '(IPA):',
+    name: 'IPA',
     min: 5,
     max: 6
   }).catch(common.handleFatalError)

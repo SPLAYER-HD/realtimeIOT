@@ -1,0 +1,32 @@
+version: '3'
+
+volumes:
+  realtime_data: {}
+
+services:
+  
+  realtime_database:
+    image: postgres:10.5
+    volumes:
+      - realtime_data:/var/lib/postgresql/data
+    env_file:
+      - ./.envs/.postgres
+    ports:
+    - "5432:5432"
+
+  realtime: &realtime
+    image: diegotorres95/realtime_production:v1
+    depends_on:
+      - realtime_database
+    command: /bin/sh -c "/home/app/entrypoint.sh"
+    env_file:
+      - ./.envs/.postgres
+      - ./.envs/.realtime
+    ports:
+      - "9090:8080"
+      - "4001:3001"
+      - "1884:1883"
+
+  redis:
+    image: redis:6.0.5
+

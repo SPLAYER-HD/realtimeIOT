@@ -8,9 +8,11 @@ const common = require('realtime-common')
 const socketio = require('socket.io')
 const api = require('./api')
 const mqtt = require('mqtt')
+var cors = require('cors')
 
 const port = process.env.PORT || 3001
 const app = asyncify(express())
+app.use(cors())
 const server = http.createServer(app)
 const io = socketio(server, { origins: '*:*' })
 let client = null

@@ -55,10 +55,14 @@ class RealtimeSensor extends EventEmitter {
                   'User-Sensors': 'ing.diego.torres95@gmail.com challenge app'
                 }
               })
+              var date = new Date()
+              var seconds = date.getSeconds()
+              var minutes = date.getMinutes()
+              var hour = date.getHours()
               const message = {
                 fridge: fridge,
                 temperature: { value: result.temperature },
-                timestamp: new Date().getTime()
+                timestamp: hour+":"+minutes+":"+seconds
               }
               this._client.publish('fridge/message', JSON.stringify(message))
             }

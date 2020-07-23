@@ -1,3 +1,16 @@
+## realtime application
+
+# Architecrture
+
+![Architecture ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture)
+
+# Steps to try 
+
+### 1 Local build
+```bash
+sudo docker-compose -f local.yml build
+```
+
 ## TODO
 -db modify entity fridge to generalize as type of sensor
 -db modify entity temperature to generalize as type of input
@@ -24,7 +37,9 @@ change mosca by other implementation because is deprecated maybe Aedes, RabbitMQ
 
 add test with error flows
 
-front - remopve hot deploy
+front - remopve hot deploy, add serviveworker, add lazy load if there are going to be many sensors, add context to user global varaibles and avoid pass props
 
 -db models device - sensor - metrics
 Estimate changes of temperature based on external events like door open (sensor on device) or environment temperature (sensor on the truck or online service)
+
+api - define generic header

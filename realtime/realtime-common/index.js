@@ -34,7 +34,7 @@ function handleError (err) {
 }
 
 const mqttOptions = {
-  interval: 20000,
+  interval: 7000,
   mqtt: {
     //host: 'mqtt://' + process.env.MQTT_URL || 'localhost'
     host: 'mqtt://localhost'

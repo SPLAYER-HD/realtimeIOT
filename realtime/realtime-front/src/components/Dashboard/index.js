@@ -1,10 +1,12 @@
 'use strict'
 import React from 'react'
-import { Fridge }  from '../Fridge'
-import { Div } from './styles';
+import { ListOfFridge } from '../ListOfFridge'
+import { Div } from './styles'
 
-export const Dashboard = ({ devices })=> {
-  return <Div>
-          <Fridge/>
-         </Div>
+export const Dashboard = ({ devices }) => {
+  return (
+    <Div>
+      <ListOfFridge />
+    </Div>
+  )
 }
