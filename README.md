@@ -39,7 +39,9 @@ At the end I developed realtime-front module with ReactJS where I consume the re
 ![Architecture_improved ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Architecture-improved.png)
 ![Database_improved ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Database-improved.png)
 
-In a real enviaronment, I would use this architectrure, deploying in AWS where we can use fargate to deploy the containers RDS to deploy our database and using cluster and balancers to make auto-scaling. Opening new business cases with all data colected.
+With this database model we can think in devices like refrigerator, truck doors, truck mortor or even in others business cases like slot machines in a casino or a buildings having many sensors and sending different kind of metrics, where we can monitor specific places or specific machines.
+
+In a real enviaronment, I would use this architecture, deploying in AWS where we can use fargate to deploy the containers RDS to deploy our database and using cluster and balancers to make auto-scaling. Opening new business cases with all data colected.
 
 ## Docker Hub URL
     https://hub.docker.com/r/diegotorres95/realtime_production
