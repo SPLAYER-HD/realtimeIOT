@@ -12,7 +12,7 @@
         cd release
     ```
 ### 4 Run docker compose (this command download all the containers required)
-#### !`if you want to see the result of automatic tests don't add the parameter --detach or -d and you will be able to see them in the log while the docker is upping`.
+#### !`if you want to see the result of automatic tests don't add the parameter --detach or -d and you will be able to see them in the log while the docker is upping`
     ```bash
         sudo docker-compose -f release.yml up
     ```
@@ -32,6 +32,11 @@ Then I developed the realtime-MQTT and realtime-sensor modules. The sensor emit 
 
 At the end I developed realtime-front module with ReactJS where I consume the realtime-api module by http to get the 6 refrigerator and I open a socket to hear events from any thermometer, then each Fridge react component decide if the metric belongs to that fridge and add the data to an array to draw a char and put the number of the current temperature using gray color when is between the normal params and red when is out of the constraint temperature params.
 
+## Docker Hub URL
+    https://hub.docker.com/r/diegotorres95/realtime_production
+
+# TODO
+## There ara many things to improve, most of them I didn't do because of time, and some few because depend of the business case and the goals of the application.
 
 # Architecture (TODO)
 
@@ -42,10 +47,6 @@ With this database model we can think in devices like refrigerator, truck doors,
 
 In a real enviaronment, I would use this architecture, deploying in AWS where we can use fargate to deploy the containers RDS to deploy our database and using cluster and balancers to make auto-scaling. Opening new business cases with all data colected.
 
-## Docker Hub URL
-    https://hub.docker.com/r/diegotorres95/realtime_production
-# TODO
-## There ara many things to improve, most of them I didn't do because of time, and some few because depend of the business case and the goals of the application.
 
 ## Database Module 
     -Modify entity fridge to generalize as type of device
