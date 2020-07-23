@@ -17,6 +17,11 @@
         sudo docker-compose -f release.yml up
     ```
 
+### 5 open url in browser
+    http://localhost:9090/public/
+
+----------------------------------------------------------------------------------------
+
 # Architecture (Current)
 
 ![Architecture ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture.png)
