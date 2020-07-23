@@ -12,7 +12,7 @@
         ```bash
             cd release
         ```
-    - run docker compose (this command download all the containers required)- ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) `if you want to see the result of automatic tests don't add the parameter --detach or -d and you will be able to see them in the log while the docker is upping`.
+    - run docker compose (this command download all the containers required)- !#1589F0 `if you want to see the result of automatic tests don't add the parameter --detach or -d and you will be able to see them in the log while the docker is upping`.
         ```bash
             sudo docker-compose -f release.yml up
         ```
