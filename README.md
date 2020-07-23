@@ -12,7 +12,7 @@
         ```bash
             cd release
         ```
-    - run docker compose (this command download all the containers required)
+    - run docker compose (this command download all the containers required)- ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) `if you want to see the result of automatic tests don't add the parameter --detach or -d and you will be able to see them in the log while the docker is upping`.
         ```bash
             sudo docker-compose -f release.yml up
         ```
@@ -25,8 +25,10 @@
 # Architecture (TODO)
 
 ![Architecture_improved ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Architecture-improved.png)
-![Database_improved ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Database-improved)
+![Database_improved ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Database-improved.png)
 
+## Docker Hub URL
+    https://hub.docker.com/r/diegotorres95/realtime_production
 # TODO
 ## There ara many things to improve, most of them I didn't do because of time, and some few because depend of the business case and the goals of the application.
 
@@ -54,7 +56,9 @@
     -Add lazy load
 
 ## Docker
-    - build a separated docker for Front, Api and MQTT modules
+    -Build a separated docker for Front, Api and MQTT modules
+    -Clean folders before create image
+    -Add script to validate if postgres is available
 
 ## General
     -Implement security sistem with jwt authentication for http and socket connections
