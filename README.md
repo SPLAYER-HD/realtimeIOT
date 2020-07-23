@@ -2,21 +2,20 @@
 
 ## Steps to test 
 
-### 1 Local build
-    - download this file https://github.com/SPLAYER-HD/realtimeIOT/tree/master/release.tar
-    - decompres
-        ```bash
-            tar -xvf release.tar
-        ```
-    - to locate in the folder /release
-        ```bash
-            cd release
-        ```
-    - run docker compose (this command download all the containers required)
-    !`if you want to see the result of automatic tests don't add the parameter --detach or -d and you will be able to see them in the log while the docker is upping`.
-        ```bash
-            sudo docker-compose -f release.yml up
-        ```
+### 1 Download this file https://github.com/SPLAYER-HD/realtimeIOT/tree/master/release.tar
+### 2 Decompres
+    ```bash
+        tar -xvf release.tar
+    ```
+### 3 To locate in the folder /release
+    ```bash
+        cd release
+    ```
+### 4 Run docker compose (this command download all the containers required)
+#### !`if you want to see the result of automatic tests don't add the parameter --detach or -d and you will be able to see them in the log while the docker is upping`.
+    ```bash
+        sudo docker-compose -f release.yml up
+    ```
 
 # Architecture (Current)
 
