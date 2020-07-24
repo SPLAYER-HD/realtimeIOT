@@ -4,7 +4,7 @@
   "description": "front of realtime sensor transmition",
   "main": "index.js",
   "scripts": {
-    "test": "mocha \"src/**/*.test.js\" --requiere @babel/register --recursive",
+    "test": "mocha \"src/**/*.test.js\" --require @babel/register --recursive",
     "lint": "standard",
     "start-dev": "npx webpack-dev-server --mode development",
     "build": "npx webpack --mode production",

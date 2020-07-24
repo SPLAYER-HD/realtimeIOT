@@ -19,7 +19,7 @@ export const Range = styled.h2`
   padding-top:0px;
 `
 
-const metricValue = (metric, min, max) => {
+export const metricValue = (metric, min, max) => {
   if(metric < min || metric > max){
     return 'red'
   }
