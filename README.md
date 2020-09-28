@@ -34,15 +34,7 @@
 ![Architecture ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture.png)
 ![Database ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Database.png)
 
-I developed the most important backend modules using TDD proccess, with an event-driven architecture where the temperature sensor is the main emitter. NodeJS is a great platform to work with this kind of use cases as IoT. With NodeJS We can managed asynchronous request with just one thread. When we have multiple requests, from sensors events and from API, the queue tool has an important use, so for that reason I implemented a MQTT that is a system designed for IoT scenarios. RabbitMQ or ActiveMQ can be used in data loss sentitive scenarios. In adition STANDARD linter has been followed in all modules, to guarantee the best quality code.
 
-I started developing the backend services. I decide to create different modules with specific purposes, so all components will be reusable. I developed a realtime-db module that creates a PostgreSQL connection using Sequelize as an ORM, and exposing functions as libraries to make specific queries.
-
-After that, I developed a realtime-api module, that injects the realtime-db module as a file-dependency, to expose the HTTP services to the ReactJs frontend.
-
-Later I developed the realtime-MQTT and realtime-sensor modules. The sensor emits a signal with the current temperature (interval simulated), then, the MQTT module receives the data from a socket connection, and notifies the temperature to the realtime-api module, and then to the frontend module.
-
-Finally, I developed a realtime-front module with ReactJS where I invoke the realtime-api module by HTTP services, to get the 6 refrigerators. A socket is opened beetwen ReactJs and API module to hear events from any thermometer, then each fridge react component decides if the metric belongs to that fridge, and adds the data to an array to draw a chart. The value of the current temperature is represented using grey colour when is under the constraint threashold, and red when is above.
 
 ## Docker Hub URL
     https://hub.docker.com/r/diegotorres95/realtime_production
@@ -56,8 +48,6 @@ Finally, I developed a realtime-front module with ReactJS where I invoke the rea
 ![Database_improved ](https://github.com/SPLAYER-HD/realtimeIOT/blob/master/assets/Realtime-Architecture-Database-improved.png)
 
 With this new database model, we can monitor any kind of devices like a refrigerator, truck doors, truck motor or even in others business cases like casino slot machines or buildings with many sensors and sending different kind of events.
-
-In a real environment, I would deploy this architecture in AWS. There, we can use Fargate service to deploy the containers and RDS to deploy our database. On the other hand, with clusters and balancers we can achive auto-scaling. The security can be  improved by using https and IP/MAC filtering. This will open new business cases with all data collected.
 
 ## Database Module 
     -Modify entity fridge to generalize device types

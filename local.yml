@@ -13,7 +13,7 @@ services:
       - ./.envs/.postgres
     ports:
     - "5432:5432"
-
+ 
   realtime: &realtime
     build:
       context: .
